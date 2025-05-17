@@ -1,2 +1,1 @@
-# trigamassociates
-Repository for trigamassociates
+# gtght

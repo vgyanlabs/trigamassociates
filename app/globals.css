@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors */
+  --navy: 30, 58, 138; /* #1E3A8A */
+  --slate: 100, 116, 139; /* #64748B */
+  --teal: 20, 184, 166; /* #14B8A6 */
+  --off-white: 248, 250, 252; /* #F8FAFC */
+  --charcoal: 31, 41, 55; /* #1F2937 */
+
+  /* Base Colors */
+  --foreground-rgb: var(--charcoal);
+  --background-start-rgb: var(--off-white);
+  --background-end-rgb: var(--off-white);
+
+  /* UI Colors */
+  --background: 210 20% 99%;
+  --foreground: 222 27% 17%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 27% 17%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 27% 17%;
+  --primary: 222 64% 33%; /* Deep Navy */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 14% 47%; /* Slate Gray */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 215 14% 47%;
+  --muted-foreground: 215 14% 47%;
+  --accent: 171 72% 40%; /* Vibrant Teal */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 215 14% 47%;
+  --input: 215 14% 47%;
+  --ring: 222 64% 33%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222 64% 10%;
+  --foreground: 0 0% 100%;
+  --card: 222 64% 10%;
+  --card-foreground: 0 0% 100%;
+  --popover: 222 64% 10%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 222 64% 33%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 14% 65%;
+  --secondary-foreground: 222 64% 10%;
+  --muted: 215 14% 40%;
+  --muted-foreground: 209 213 219;
+  --accent: 171 72% 40%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 215 14% 47%;
+  --input: 215 14% 47%;
+  --ring: 222 64% 33%;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-gradient-brand {
+    @apply bg-gradient-to-br from-[#1E3A8A] via-[#64748B] to-[#14B8A6];
+  }
+
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-[#1E3A8A] to-[#14B8A6] bg-clip-text text-transparent;
+  }
+
+  .button-gradient {
+    @apply bg-gradient-to-r from-[#1E3A8A] to-[#14B8A6] text-white transition-all hover:shadow-lg hover:shadow-[#14B8A6]/20;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
