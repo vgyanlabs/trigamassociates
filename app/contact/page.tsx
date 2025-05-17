@@ -295,7 +295,7 @@ export default function ContactPage() {
                       Thank you for reaching out to us. We'll get back to you within 24 hours.
                     </p>
                     <Button
-                      onClick={() => setSubmitted(false)}\n                      className="rounded-full bg-gradient-to-r from-purple-600 to-teal-500 px-8 py-6 text-lg font-medium text-white"
+                      onClick={() => setSubmitted(false)} className="rounded-full bg-gradient-to-r from-purple-600 to-teal-500 px-8 py-6 text-lg font-medium text-white"
                     >
                       <MessageSquare className="mr-2 h-5 w-5" />
                       Send Another Message
