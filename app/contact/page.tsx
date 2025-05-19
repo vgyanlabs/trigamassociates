@@ -64,8 +64,6 @@ export default function ContactPage() {
             </p>
           </motion.div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent dark:from-background dark:to-transparent"></div>
       </section>
 
       {/* Contact Form Section */}

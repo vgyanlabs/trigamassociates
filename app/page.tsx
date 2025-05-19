@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Navbar from "@/components/navbar"
 import ServicesSection from "@/components/services-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import CallToActionSection from "@/components/call-to-action-section"
