@@ -47,6 +47,11 @@ export default function ClientLogos() {
   }, [])
 
   return (
+    <section className="border-y border-gray-200 bg-gray-50 py-12 dark:border-gray-800 dark:bg-gray-900/30">
+    <div className="container">
+      <p className="mb-8 text-center text-sm font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+        Trusted by innovative brands worldwide
+      </p>
     <div className="relative overflow-hidden">
       <div
         ref={containerRef}
@@ -72,5 +77,7 @@ export default function ClientLogos() {
       <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-900"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-gray-50 to-transparent dark:from-gray-900"></div>
     </div>
+    </div>
+    </section>
   )
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { ArrowRight, BarChart3, Users, Zap, Globe, PenTool, Search } from "lucide-react"
+import { ArrowRight, BarChart3, Users, Zap, Globe, PenTool, Search, Target } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -68,6 +68,19 @@ export default function ServicesSection() {
   ]
 
   return (
+    <section className="py-20 md:py-32">
+    <div className="container">
+      <div className="mx-auto mb-16 max-w-3xl text-center">
+        <div className="mb-6 inline-flex items-center rounded-full bg-[#0D5F72]/10 px-4 py-2 text-sm text-[#0D5F72] dark:bg-[#0D5F72]/30 dark:text-[#0D5F72]">
+          <Target className="mr-2 h-4 w-4" />
+          <span>Comprehensive Marketing Solutions</span>
+        </div>
+        <h2 className="mb-6 text-3xl font-bold md:text-5xl">Our 360° Marketing Services</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400">
+          Strategy, creativity, and performance combined to amplify your brand and maximize growth
+        </p>
+      </div>
+
     <div className="grid gap-12 md:grid-cols-12 md:gap-10 lg:gap-20">
       <div className="md:col-span-5">
         <div className="sticky top-24 space-y-6">
@@ -150,5 +163,7 @@ export default function ServicesSection() {
         </div>
       </div>
     </div>
+    </div>
+    </section>
   )
 }
