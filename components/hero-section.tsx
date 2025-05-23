@@ -8,7 +8,7 @@ export default function HeroSection({ heroRef }: any) {
   return (
     <section
       ref={heroRef}
-      className="relative overflow-hidden bg-gradient-to-br from-[#2A4466] via-[#2A4466]/80 to-[#F95F53]"
+      className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466]"
     >
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
@@ -20,16 +20,16 @@ export default function HeroSection({ heroRef }: any) {
           transition={{ duration: 0.8 }}
           className="mx-auto max-w-4xl text-center"
         >
-          <div className="mb-6 inline-flex items-center rounded-full border border-[#F95F53]/30 bg-[#F95F53]/10 px-4 py-2 text-sm text-white">
-            <Zap className="mr-2 h-4 w-4 text-purple-300" />
-            <span>Turning clicks into conversions with marketing magic</span>
+          <div className="mb-6 inline-flex items-center rounded-full border border-[#2A4466]/30 bg-[#2A4466]/10 px-4 py-2 text-sm text-white">
+            <Zap className="mr-2 h-4 w-4 text-[#2A4466]" />
+            <span className="text-[#2A4466]">Turning clicks into conversions with marketing magic</span>
           </div>
 
-          <h1 className="mb-6 bg-gradient-to-r from-white via-[#F95F53]/90 to-white bg-clip-text text-3xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
+          <h1 className="mb-6 bg-gradient-to-r from-[#2A4466] via-[#2A4466]/90 to-[#2A4466] bg-clip-text text-3xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
             Marketing So Good, Even Algorithms Take Notes
           </h1>
 
-          <p className="mb-8 md:mt-2 text-sm text-purple-100 md:text-lg">
+          <p className="mb-8 md:mt-2 text-sm text-[#2A4466] md:text-lg">
             We deliver 360° marketing solutions integrating social media, influencer marketing, and META ads for
             impactful brand growth that drives real results.
           </p>
