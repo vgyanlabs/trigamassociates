@@ -11,5 +11,5 @@ export default function NavBarDemo() {
     { name: 'Contact', url: '/contact', icon: Phone }
   ]
 
-  return <NavBar items={navItems} />
+  return <NavBar items={navItems} className='ml-auto' />
 }

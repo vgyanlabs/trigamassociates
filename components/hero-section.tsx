@@ -8,7 +8,7 @@ export default function HeroSection({ heroRef }: any) {
   return (
     <section
       ref={heroRef}
-      className="relative overflow-hidden bg-gradient-to-br from-[#0D5F72] via-[#0D5F72]/80 to-[#F95F53]"
+      className="relative overflow-hidden bg-gradient-to-br from-[#2A4466] via-[#2A4466]/80 to-[#F95F53]"
     >
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
@@ -25,11 +25,11 @@ export default function HeroSection({ heroRef }: any) {
             <span>Turning clicks into conversions with marketing magic</span>
           </div>
 
-          <h1 className="mb-6 bg-gradient-to-r from-white via-[#F95F53]/90 to-white bg-clip-text text-3xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-5xl">
+          <h1 className="mb-6 bg-gradient-to-r from-white via-[#F95F53]/90 to-white bg-clip-text text-3xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
             Marketing So Good, Even Algorithms Take Notes
           </h1>
 
-          <p className="mb-8 md:mt-2 text-sm text-purple-100 md:text-xl">
+          <p className="mb-8 md:mt-2 text-sm text-purple-100 md:text-lg">
             We deliver 360° marketing solutions integrating social media, influencer marketing, and META ads for
             impactful brand growth that drives real results.
           </p>
