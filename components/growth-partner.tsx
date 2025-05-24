@@ -9,7 +9,7 @@ export default function GrowthPartner({}) {
     return(
         <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] py-20 text-white md:py-32">
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-[url('/images/circuit-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+          <div className="absolute inset-0 bg-[url('public/images/Growth-Partner.jpg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         </div>
 
         <div className="container relative z-10">
