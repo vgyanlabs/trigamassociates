@@ -18,7 +18,7 @@ export default function ServicesSection() {
         "We don't just post—we create waves! Our social media marketing strategies are designed to amplify your brand's voice, drive engagement, and turn followers into loyal customers. From viral content to targeted ad campaigns, we ensure your brand stays ahead of the curve.",
       icon: <Users className="h-6 w-6" />,
       color: "from-blue-500 to-indigo-600",
-      image: "/images/social-media-marketing.jpg",
+      image: "public/images/social-media-marketing.jpg",
     },
     {
       id: "02",
@@ -27,7 +27,7 @@ export default function ServicesSection() {
         "Leverage the power of influence! We connect your brand with the right influencers to create authentic, high-impact collaborations that boost credibility and drive real conversions. Whether it's macro or micro-influencers, we ensure maximum ROI and engagement.",
       icon: <Zap className="h-6 w-6" />,
       color: "from-purple-500 to-pink-600",
-      image: "/images/influencer-marketing.jpg",
+      image: "public/images/influencer-marketing.jpg",
     },
     {
       id: "03",
@@ -36,7 +36,7 @@ export default function ServicesSection() {
         "Every click counts! Our performance marketing approach focuses on data-driven strategies, optimizing ad campaigns across platforms like Google, META, and beyond. We ensure your marketing budget delivers measurable growth, higher conversions, and better ROI.",
       icon: <BarChart3 className="h-6 w-6" />,
       color: "from-teal-500 to-emerald-600",
-      image: "/images/performance-marketing.jpg",
+      image: "public/images/performance-marketing.jpg",
     },
     {
       id: "04",
@@ -45,7 +45,7 @@ export default function ServicesSection() {
         "Your digital storefront matters! We create stunning, conversion-optimized websites that not only look great but perform exceptionally. From responsive design to seamless user experience, we build websites that convert visitors into customers.",
       icon: <Globe className="h-6 w-6" />,
       color: "from-amber-500 to-orange-600",
-      image: "/images/website-development.jpg",
+      image: "public/images/website-development.jpg",
     },
     {
       id: "05",
@@ -54,7 +54,7 @@ export default function ServicesSection() {
         "Content that captivates! Our creative team crafts compelling content that resonates with your audience and drives engagement. From blog posts and videos to infographics and social media content, we create assets that tell your brand story effectively.",
       icon: <PenTool className="h-6 w-6" />,
       color: "from-rose-500 to-red-600",
-      image: "/images/content-creation.jpg",
+      image: "public/images/content-creation.jpg",
     },
     {
       id: "06",
@@ -63,7 +63,7 @@ export default function ServicesSection() {
         "Get found online! Our SEO strategies improve your visibility in search results, driving organic traffic to your website. We focus on technical SEO, content optimization, and link building to help your brand climb the rankings and stay there.",
       icon: <Search className="h-6 w-6" />,
       color: "from-cyan-500 to-blue-600",
-      image: "/images/seo-optimization.jpg",
+      image: "public/images/seo-optimization.jpg",
     },
   ]
 
