@@ -40,7 +40,7 @@ export default function ServicesPage() {
         "We don't just post—we create waves! Our social media marketing strategies are designed to amplify your brand's voice, drive engagement, and turn followers into loyal customers.",
       icon: <Users className="h-6 w-6" />,
       color: "from-blue-500 to-indigo-600",
-      image: "/placeholder.svg?height=600&width=800&text=Social+Media+Marketing",
+      image: "public/images/social-media-marketing.jpg?height=600&width=800&text=Social+Media+Marketing",
       features: [
         "Strategic content planning and creation",
         "Community management and engagement",
@@ -64,7 +64,7 @@ export default function ServicesPage() {
         "Leverage the power of influence! We connect your brand with the right influencers to create authentic, high-impact collaborations that boost credibility and drive real conversions.",
       icon: <Zap className="h-6 w-6" />,
       color: "from-purple-500 to-pink-600",
-      image: "/placeholder.svg?height=600&width=800&text=Influencer+Marketing",
+      image: "public/images/influencer-marketing.jpg?height=600&width=800&text=Influencer+Marketing",
       features: [
         "Influencer identification and vetting",
         "Campaign strategy and planning",
@@ -88,7 +88,7 @@ export default function ServicesPage() {
         "Every click counts! Our performance marketing approach focuses on data-driven strategies, optimizing ad campaigns across platforms like Google, META, and beyond.",
       icon: <BarChart3 className="h-6 w-6" />,
       color: "from-teal-500 to-emerald-600",
-      image: "/placeholder.svg?height=600&width=800&text=Performance+Marketing",
+      image: "public/images/performance-marketing.jpg?height=600&width=800&text=Performance+Marketing",
       features: [
         "PPC campaign management",
         "Conversion rate optimization",
@@ -112,7 +112,7 @@ export default function ServicesPage() {
         "Your digital storefront matters! We create stunning, conversion-optimized websites that not only look great but perform exceptionally.",
       icon: <Globe className="h-6 w-6" />,
       color: "from-amber-500 to-orange-600",
-      image: "/placeholder.svg?height=600&width=800&text=Website+Development",
+      image: "public/images/website-development.jpg?height=600&width=800&text=Website+Development",
       features: [
         "Responsive web design",
         "User experience optimization",
@@ -136,7 +136,7 @@ export default function ServicesPage() {
         "Content that captivates! Our creative team crafts compelling content that resonates with your audience and drives engagement.",
       icon: <PenTool className="h-6 w-6" />,
       color: "from-rose-500 to-red-600",
-      image: "/placeholder.svg?height=600&width=800&text=Content+Creation",
+      image: "public/images/content-creation.jpg?height=600&width=800&text=Content+Creation",
       features: [
         "Blog posts and articles",
         "Video production",
@@ -160,7 +160,7 @@ export default function ServicesPage() {
         "Get found online! Our SEO strategies improve your visibility in search results, driving organic traffic to your website.",
       icon: <Search className="h-6 w-6" />,
       color: "from-cyan-500 to-blue-600",
-      image: "/placeholder.svg?height=600&width=800&text=SEO+Optimization",
+      image: "public/images/seo-optimization.jpg?height=600&width=800&text=SEO+Optimization",
       features: [
         "Keyword research and strategy",
         "On-page SEO optimization",
