@@ -29,7 +29,7 @@ export default function BlogPage() {
       id: 1,
       title: "Crafting Captivating Headlines: Your awesome post title goes here",
       excerpt: "Engaging Introductions: Capturing Your Audience's Interest The initial impression your blog post makes is crucial, and that's where your introduction […]",
-      image: "/placeholder.svg?height=600&width=800&text=Captivating+Headlines",
+      image: "public/images/blog-1.jpg?height=600&width=800&text=Captivating+Headlines",
       category: "content",
       date: "March 7, 2025",
       readTime: "5 min read",
