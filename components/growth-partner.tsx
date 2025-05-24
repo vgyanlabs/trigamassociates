@@ -7,7 +7,7 @@ import { Users } from "lucide-react"
 
 export default function GrowthPartner({}) {
     return(
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#0D5F72] via-[#0D5F72]/80 to-[#F95F53] py-20 text-white md:py-32">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] py-20 text-white md:py-32">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0 bg-[url('/images/circuit-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         </div>
@@ -15,19 +15,19 @@ export default function GrowthPartner({}) {
         <div className="container relative z-10">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div>
-              <div className="mb-6 inline-flex items-center rounded-full border border-[#F95F53]/30 bg-[#F95F53]/10 px-4 py-2 text-sm text-white">
+              <div className="mb-6 inline-flex items-center rounded-full border border-[#F95F53]/30 bg-[#F95F53]/10 px-4 py-2 text-sm text-[#2A4466]">
                 <TrendingUp className="mr-2 h-4 w-4 text-teal-300" />
                 <span>Your Growth Partner</span>
               </div>
-              <h2 className="mb-6 text-3xl font-bold md:text-5xl">
+              <h2 className="mb-6 text-3xl text-[#2A4466] font-bold md:text-5xl">
                 From Clicks To Conversions – We've Got Your Marketing Covered
               </h2>
-              <p className="mb-8 text-lg text-teal-100">
+              <p className="mb-8 text-lg text-[#2A4466]">
                 From strategy to execution, we master social media, influencer marketing, and META ads to deliver
                 unmatched brand success.
               </p>
 
-              <ul className="mb-8 space-y-4">
+              <ul className="mb-8 text-[#2A4466] space-y-4">
                 {[
                   "Data-driven strategies that deliver results",
                   "Creative content that captivates your audience",
@@ -50,7 +50,7 @@ export default function GrowthPartner({}) {
 
               <Button
                 size="lg"
-                className="rounded-full bg-gradient-to-r from-[#0D5F72] to-[#F95F53] px-8 py-6 text-lg font-medium text-white transition-all hover:shadow-lg hover:shadow-[#F95F53]/20"
+                className="rounded-full bg-gray-400 px-8 py-6 text-lg font-medium text-white transition-all hover:shadow-lg hover:shadow-[#2A4466]/20"
               >
                 Learn Our Approach
               </Button>
