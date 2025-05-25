@@ -34,7 +34,6 @@ export default function NavBarDemo() {
 
       {/* Mobile Navigation */}
       <div className="sm:hidden">
-        {/* Logo at top */}
         <div className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 h-16 flex items-center">
             <Link href="/" className="flex items-center space-x-2">
@@ -49,10 +48,8 @@ export default function NavBarDemo() {
             </Link>
           </div>
         </div>
-
-        {/* Navigation at bottom */}
-        <div className="fixed bottom-0 left-0 right-0 z-40">
-          <NavBar items={navItems} className="!relative !top-0 !right-0 !mb-0 !pt-0 !pr-0" />
+        <div className="fixed bottom-0 left-0 right-0 z-40 px-12 pb-4">
+          <NavBar items={navItems}  />
         </div>
       </div>
     </>
