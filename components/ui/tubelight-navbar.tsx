@@ -36,11 +36,11 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "relative z-50 w-[90%] mx-auto sm:w-auto sm:fixed sm:top-0 sm:left-auto sm:translate-x-0 sm:right-0 sm:pt-8 sm:pr-8 md:pr-12 lg:pr-16 xl:pr-20",
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-0 z-50 mb-8 sm:pt-8 sm:pr-8 md:pr-12 lg:pr-16 xl:pr-20",
         className,
       )}
     >
-      <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 sm:px-2 md:px-3 lg:px-4 rounded-full shadow-lg">
+      <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 sm:px-2 md:px-3 lg:px-4 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -51,9 +51,9 @@ export function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm sm:text-base font-semibold px-2 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 rounded-full transition-colors",
+                "relative cursor-pointer text-sm sm:text-base font-semibold px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",
-                isActive && "bg-[#2A4466]/10 text-[#2A4466]",
+                isActive && "bg-muted text-primary",
               )}
             >
               <span className="hidden md:inline">{item.name}</span>
@@ -63,7 +63,7 @@ export function NavBar({ items, className }: NavBarProps) {
               {isActive && (
                 <motion.div
                   layoutId="lamp"
-                  className="absolute inset-0 w-full bg-[#2A4466]/5 rounded-full -z-10"
+                  className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
                   initial={false}
                   transition={{
                     type: "spring",
@@ -71,10 +71,10 @@ export function NavBar({ items, className }: NavBarProps) {
                     damping: 30,
                   }}
                 >
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#2A4466] rounded-t-full">
-                    <div className="absolute w-12 h-6 bg-[#2A4466]/20 rounded-full blur-md -top-2 -left-2" />
-                    <div className="absolute w-8 h-6 bg-[#2A4466]/20 rounded-full blur-md -top-1" />
-                    <div className="absolute w-4 h-4 bg-[#2A4466]/20 rounded-full blur-sm top-0 left-2" />
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
+                    <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
+                    <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
+                    <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
                   </div>
                 </motion.div>
               )}
