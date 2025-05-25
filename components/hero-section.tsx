@@ -24,10 +24,10 @@ export default function HeroSection({ heroRef }: any) {
             <Zap className="mr-2 h-4 w-4 text-[#2A4466]" />
             <span className="text-[#2A4466]">Turning clicks into conversions with marketing magic</span>
           </div>
-
+{/* 
           <h1 className="mb-6 bg-gradient-to-r from-[#2A4466] via-[#2A4466]/90 to-[#2A4466] bg-clip-text text-3xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
             Marketing So Good, Even Algorithms Take Notes
-          </h1>
+          </h1> */}
 
           <p className="mb-8 md:mt-2 text-sm text-[#2A4466] md:text-lg">
             We deliver 360° marketing solutions integrating social media, influencer marketing, and META ads for

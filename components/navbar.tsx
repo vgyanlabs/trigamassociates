@@ -28,7 +28,7 @@ export default function NavBarDemo() {
             />
             <span className="text-lg sm:text-xl font-semibold">TrigamAssociates</span>
           </Link>
-          <div className="text-sm text-muted-foreground italic text-center flex-1 max-w-[200px] sm:max-w-md">
+          <div className="text-lg text-black font-medium text-center flex-1 max-w-[200px] sm:max-w-md">
             Marketing So Good, Even Algorithms Take Notes
           </div>
           <div className="shrink-0">
