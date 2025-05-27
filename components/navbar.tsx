@@ -1,11 +1,13 @@
 "use client"
 
-import { Home, BookOpen, Briefcase, FileText, Phone, Newspaper, LayoutGrid } from 'lucide-react'
-import { NavBar } from "@/components/ui/tubelight-navbar"
+import { Home, LayoutGrid, Newspaper, Phone } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
-export default function NavBarDemo() {
+export default function NavBar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   const navItems = [
     { name: 'Home', url: '/', icon: Home },
     { name: 'Services', url: '/services', icon: LayoutGrid },
@@ -14,49 +16,74 @@ export default function NavBarDemo() {
   ]
 
   return (
-    <>
-      {/* Desktop Navigation */}
-      <div className="hidden sm:block fixed top-0 left-0 right-0 z-50">
-        <div className="container mx-auto px-2 sm:px-4 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
-          <Link href="/" className="flex items-center space-x-1 sm:space-x-2 shrink-0">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/logo.png"
               alt="Trigam Associates Logo"
-              width={32}
-              height={32}
-              className="rounded-full sm:w-10 sm:h-10"
+              width={40}
+              height={40}
+              className="rounded-full"
             />
-            <span className="text-lg sm:text-xl font-semibold">TrigamAssociates</span>
+            <span className="text-xl font-semibold">TrigamAssociates</span>
           </Link>
-          <div className="text-lg text-black font-medium text-center flex-1 max-w-[200px] sm:max-w-md">
+
+          {/* Tagline - Hidden on mobile */}
+          <div className="hidden lg:block text-center text-gray-600 font-medium flex-1 max-w-md mx-8">
             Marketing So Good, Even Algorithms Take Notes
           </div>
-          <div className="shrink-0">
-            <NavBar items={navItems} className="!relative !top-0 !right-0 !mb-0 !pt-0 !pr-0 scale-90 sm:scale-100" />
-          </div>
-        </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      <div className="sm:hidden">
-        <div className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm">
-          <div className="container mx-auto px-4 h-16 flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="/logo.png"
-                alt="Trigam Associates Logo"
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-              <span className="text-xl font-semibold">TrigamAssociates</span>
-            </Link>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.url}
+                className="flex items-center space-x-1 text-gray-600 hover:text-black transition-colors duration-200"
+              >
+                <item.icon className="w-5 h-5" />
+                <span>{item.name}</span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <span className={`block w-full h-0.5 bg-black transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block w-full h-0.5 bg-black transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-full h-0.5 bg-black transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </div>
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} py-4 border-t border-gray-100`}>
+          {/* Tagline - Visible only on mobile when menu is open */}
+          <div className="text-center text-gray-600 font-medium mb-4 px-4">
+            Marketing So Good, Even Algorithms Take Notes
+          </div>
+          <div className="flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.url}
+                className="flex items-center space-x-2 text-gray-600 hover:text-black transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <item.icon className="w-5 h-5" />
+                <span>{item.name}</span>
+              </Link>
+            ))}
           </div>
         </div>
-        <div className="fixed bottom-0 left-0 right-0 z-40 px-12 pb-4">
-          <NavBar items={navItems}  />
-        </div>
       </div>
-    </>
+    </nav>
   )
 }
