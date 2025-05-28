@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
     <section className="overflow-hidden bg-white py-20 dark:bg-gray-900 md:py-32">
       <div className="container">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <div className="mb-6 inline-flex items-center rounded-full bg-purple-50 px-4 py-2 text-sm text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
+          <div className="mb-6 inline-flex items-center rounded-full bg-[#2A4466] px-4 py-2 text-sm text-white">
             <Quote className="mr-2 h-4 w-4" />
             <span>Client Success Stories</span>
           </div>

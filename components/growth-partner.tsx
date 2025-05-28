@@ -15,7 +15,7 @@ export default function GrowthPartner({}) {
         <div className="container relative z-10">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div>
-              <div className="mb-6 inline-flex items-center rounded-full border border-[#F95F53]/30 bg-[#F95F53]/10 px-4 py-2 text-sm text-[#2A4466]">
+              <div className="mb-6 inline-flex items-center rounded-full border border-[#2A4466]/30 bg-[#2A4466]/10 px-4 py-2 text-sm text-[#2A4466]">
                 <TrendingUp className="mr-2 h-4 w-4 text-teal-300" />
                 <span>Your Growth Partner</span>
               </div>

@@ -112,7 +112,7 @@ export default function BlogSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-4">
-                    <span className="rounded-full bg-gradient-to-r from-[#0D5F72] to-[#F95F53] px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-[#2A4466] px-3 py-1 text-xs font-medium text-white">
                       {post.category}
                     </span>
                   </div>
