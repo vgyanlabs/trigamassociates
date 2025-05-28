@@ -17,7 +17,7 @@ export default function ServicesSection() {
       description:
         "We don't just post—we create waves! Our social media marketing strategies are designed to amplify your brand's voice, drive engagement, and turn followers into loyal customers. From viral content to targeted ad campaigns, we ensure your brand stays ahead of the curve.",
       icon: <Users className="h-6 w-6" />,
-      color: "from-blue-500 to-indigo-600",
+      color: "from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466]",
       image: "/images/social-media-marketing.jpg",
     },
     {
@@ -26,7 +26,7 @@ export default function ServicesSection() {
       description:
         "Leverage the power of influence! We connect your brand with the right influencers to create authentic, high-impact collaborations that boost credibility and drive real conversions. Whether it's macro or micro-influencers, we ensure maximum ROI and engagement.",
       icon: <Zap className="h-6 w-6" />,
-      color: "from-purple-500 to-pink-600",
+      color: "from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466]",
       image: "/images/influencer-marketing.jpg",
     },
     {
@@ -35,7 +35,7 @@ export default function ServicesSection() {
       description:
         "Every click counts! Our performance marketing approach focuses on data-driven strategies, optimizing ad campaigns across platforms like Google, META, and beyond. We ensure your marketing budget delivers measurable growth, higher conversions, and better ROI.",
       icon: <BarChart3 className="h-6 w-6" />,
-      color: "from-teal-500 to-emerald-600",
+      color: "from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466]",
       image: "/images/performance-marketing.jpg",
     },
     {
@@ -44,7 +44,7 @@ export default function ServicesSection() {
       description:
         "Your digital storefront matters! We create stunning, conversion-optimized websites that not only look great but perform exceptionally. From responsive design to seamless user experience, we build websites that convert visitors into customers.",
       icon: <Globe className="h-6 w-6" />,
-      color: "from-amber-500 to-orange-600",
+      color: "from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466]",
       image: "/images/website-development.jpg",
     },
     {
@@ -53,7 +53,7 @@ export default function ServicesSection() {
       description:
         "Content that captivates! Our creative team crafts compelling content that resonates with your audience and drives engagement. From blog posts and videos to infographics and social media content, we create assets that tell your brand story effectively.",
       icon: <PenTool className="h-6 w-6" />,
-      color: "from-rose-500 to-red-600",
+      color: "from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466]",
       image: "/images/content-creation.jpg",
     },
     {
@@ -62,7 +62,7 @@ export default function ServicesSection() {
       description:
         "Get found online! Our SEO strategies improve your visibility in search results, driving organic traffic to your website. We focus on technical SEO, content optimization, and link building to help your brand climb the rankings and stay there.",
       icon: <Search className="h-6 w-6" />,
-      color: "from-cyan-500 to-blue-600",
+      color: "from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466]",
       image: "/images/seo-optimization.jpg",
     },
   ]
@@ -71,7 +71,7 @@ export default function ServicesSection() {
     <section className="py-20 md:py-32">
     <div className="container">
       <div className="mx-auto mb-16 max-w-3xl text-center">
-        <div className="mb-6 inline-flex items-center rounded-full bg-[#0D5F72]/10 px-4 py-2 text-sm text-[#0D5F72] dark:bg-[#0D5F72]/30 dark:text-[#0D5F72]">
+        <div className="mb-6 inline-flex items-center rounded-full bg-[#2A4466]/10 px-4 py-2 text-sm text-[#2A4466] dark:bg-[#2A4466]/30 dark:text-[#2A4466]">
           <Target className="mr-2 h-4 w-4" />
           <span>Comprehensive Marketing Solutions</span>
         </div>
@@ -91,16 +91,16 @@ export default function ServicesSection() {
               className={cn(
                 "flex w-full items-start rounded-xl p-6 text-left transition-all hover:scale-[1.02] duration-300",
                 activeTab === index 
-                  ? "bg-gradient-brand text-white shadow-xl" 
+                  ? "bg-gradient-to-r from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] text-[#2A4466] shadow-xl" 
                   : "hover:bg-gray-50 dark:hover:bg-gray-900",
               )}
             >
-              <div className={cn("mr-5 rounded-full bg-white/20 p-4", activeTab === index ? "text-white" : "text-gradient-brand")}>
+              <div className={cn("mr-5 rounded-full bg-[#2A4466]/20 p-4", activeTab === index ? "text-[#2A4466]" : "text-[#2A4466]")}>
                 {service.icon}
               </div>
               <div>
                 <h3 className="text-lg font-semibold">{service.title}</h3>
-                <p className={cn("mt-2 text-sm leading-relaxed", activeTab === index ? "text-white/80" : "text-gray-500 dark:text-gray-400")}>
+                <p className={cn("mt-2 text-sm leading-relaxed", activeTab === index ? "text-gray-800" : "text-gray-600 dark:text-gray-400")}>
                   {service.description.substring(0, 80)}...
                 </p>
               </div>
@@ -141,7 +141,7 @@ export default function ServicesSection() {
                 (feature, i) => (
                   <div key={i} className="flex items-center">
                     <div
-                      className={cn("mr-3 rounded-full bg-gradient-to-br p-1 text-white", services[activeTab].color)}
+                      className={cn("mr-3 rounded-full bg-gradient-to-r from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] p-1 text-[#2A4466]", services[activeTab].color)}
                     >
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -154,7 +154,7 @@ export default function ServicesSection() {
             </div>
 
             <Button
-              className="button-gradient group flex items-center gap-2"
+              className="bg-[#2A4466] text-white hover:bg-[#2A4466]/90 hover:shadow-lg hover:shadow-[#2A4466]/20 group flex items-center gap-2"
             >
               Learn More
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

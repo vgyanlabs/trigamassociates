@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "./ui/button"
 export default function Footer() {
     return (
@@ -7,12 +8,16 @@ export default function Footer() {
           <div className="grid gap-12 md:grid-cols-4">
             <div>
               <Link href="/" className="flex items-center space-x-2">
-                <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gradient-to-br from-purple-600 to-teal-400">
-                  <div className="absolute inset-0 flex items-center justify-center text-xl font-bold text-white">
-                    T
-                  </div>
-                </div>
-                <span className="text-xl font-medium">trigam</span>
+      
+                <Image
+              src="/logo.png"
+              alt="Trigam Associates Logo"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+             
+                <span className="text-xl font-medium">TrigamAssociates</span>
               </Link>
               <p className="mt-4 text-gray-600 dark:text-gray-400">
                 Your 360° marketing partner delivering strategies that drive growth and engagement.
@@ -78,7 +83,7 @@ export default function Footer() {
                 <li>123 Marketing Street, Digital City, 10001</li>
               </ul>
               <div className="mt-6">
-                <Button className="w-full bg-gradient-to-r from-teal-600 to-purple-500 text-white hover:shadow-lg hover:shadow-purple-500/20">
+                <Button className="w-full bg-[#2A4466] text-white hover:bg-[#2A4466]/90 hover:shadow-lg hover:shadow-[#2A4466]/20">
                   Get in Touch
                 </Button>
               </div>
