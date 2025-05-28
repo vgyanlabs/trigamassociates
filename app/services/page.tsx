@@ -193,7 +193,7 @@ export default function ServicesPage() {
   return (
     <main className="flex-1">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-24 md:py-36">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] py-24 md:py-36">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         </div>
@@ -205,10 +205,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <h1 className="mb-8 bg-gradient-to-r from-white via-purple-200 to-teal-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
+            <h1 className="mb-8 bg-gradient-to-r from-[#2A4466] via-[#1A2F4A] to-[#2A4466] bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
               Our 360° Marketing Services
             </h1>
-            <p className="mb-10 text-lg text-purple-100 md:text-xl">
+            <p className="mb-10 text-lg text-[#2A4466] md:text-xl">
               Comprehensive marketing solutions designed to amplify your brand and maximize growth through strategy,
               creativity, and performance.
             </p>
@@ -217,15 +217,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Tabs Section */}
-      <section className="py-24 bg-white dark:bg-gray-950 border-t border-b border-gray-100 dark:border-gray-800">
-        <div className="container">
+      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] border-t border-b border-gray-100 dark:border-gray-800">
+        <div className="container px-4 sm:px-6">
           <Tabs
             value={activeTab}
             onValueChange={setActiveTab}
-            className="space-y-12"
+            className="space-y-8 sm:space-y-12"
           >
             {/* Custom Animated Tab Bar */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-6 sm:mb-8">
               <AnimatedTabBar
                 services={services}
                 activeTab={activeTab}
@@ -234,46 +234,45 @@ export default function ServicesPage() {
             </div>
 
             {services.map((service, sIdx) => (
-              <TabsContent key={service.id} value={service.id} className="space-y-16">
-                <div className="grid gap-12 md:grid-cols-2 items-center">
-                  <div>
+              <TabsContent key={service.id} value={service.id} className="space-y-8 sm:space-y-16">
+                <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 items-start">
+                  <div className="space-y-6">
                     <div
                       className={cn(
-                        "mb-6 inline-block rounded-full bg-gradient-to-br px-5 py-2 text-white text-sm font-semibold shadow-md",
-                        service.color,
+                        "mb-4 sm:mb-6 inline-block rounded-full bg-gradient-to-br px-4 sm:px-5 py-2 text-white text-sm font-semibold shadow-md",
+                        "from-[#2A4466] to-[#1A2F4A]"
                       )}
                     >
                       {service.icon}
                       <span className="ml-2">Service</span>
                     </div>
-                    <h2 className="mb-2 text-3xl font-bold md:text-4xl text-gray-900 dark:text-white">{service.title}</h2>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A4466]">{service.title}</h2>
                     {/* Subtitle/Tagline */}
-                    <p className="mb-5 text-base italic text-indigo-500 dark:text-indigo-300">{service.description.split("!")[0]}!</p>
-                    <p className="mb-8 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">{service.description}</p>
+                    <p className="text-sm sm:text-base italic text-[#1A2F4A]">{service.description.split("!")[0]}!</p>
+                    <p className="text-base sm:text-lg text-[#2A4466] leading-relaxed">{service.description}</p>
 
-                    <h3 className="mb-4 text-xl font-semibold text-gray-800 dark:text-gray-200">Key Features</h3>
-                    <ul className="mb-8 grid gap-4 md:grid-cols-2">
-                      {service.features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <CheckCircle
-                            className={cn(
-                              "h-5 w-5 flex-shrink-0 mt-1",
-                              service.color.split(" ")[1],
-                            )}
-                          />
-                          <span className="text-base text-gray-700 dark:text-gray-300">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="space-y-4">
+                      <h3 className="text-lg sm:text-xl font-semibold text-[#2A4466]">Key Features</h3>
+                      <ul className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
+                        {service.features.map((feature, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <CheckCircle
+                              className="h-5 w-5 flex-shrink-0 mt-1 text-[#2A4466]"
+                            />
+                            <span className="text-sm sm:text-base text-[#2A4466]">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                    <Button className={cn("mt-6 bg-gradient-to-br text-white px-8 py-4 text-lg rounded-full shadow-lg border-2 border-transparent hover:border-indigo-400 hover:scale-105 transition-all duration-200", service.color)}>
+                    <Button className="mt-4 sm:mt-6 bg-gradient-to-br from-[#2A4466] to-[#1A2F4A] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-full shadow-lg border-2 border-transparent hover:border-[#F5F5F5] hover:scale-105 transition-all duration-200">
                       Get Started
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                     </Button>
                   </div>
 
                   {/* Animated image transition */}
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900 p-2 flex items-center justify-center min-h-[320px]">
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#2A4466]/20 bg-white p-2 flex items-center justify-center min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]">
                     <motion.div
                       key={activeTab}
                       initial={{ opacity: 0, x: 40 }}
@@ -293,27 +292,24 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Our Process</h3>
-                  <div className="grid gap-8 md:grid-cols-5">
+                <div className="space-y-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#2A4466]">Our Process</h3>
+                  <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
                     {service.process.map((step, index) => (
                       <motion.div
                         key={index}
-                        whileHover={{ scale: 1.05, boxShadow: "0 8px 32px rgba(80,80,200,0.10)" }}
-                        className="relative rounded-xl border border-gray-200 bg-white p-7 shadow-md dark:border-gray-800 dark:bg-gray-900 flex flex-col min-h-[180px] transition-all duration-200"
+                        whileHover={{ scale: 1.05, boxShadow: "0 8px 32px rgba(42,68,102,0.15)" }}
+                        className="relative rounded-xl border border-[#2A4466]/20 bg-white p-5 sm:p-7 shadow-md flex flex-col min-h-[160px] sm:min-h-[180px] transition-all duration-200"
                         aria-label={`Step ${index + 1}: ${step.step}`}
                       >
                         <div
-                          className={cn(
-                            "absolute -top-4 left-6 rounded-full bg-gradient-to-br px-4 py-1 text-xs font-semibold text-white shadow flex items-center gap-2",
-                            service.color,
-                          )}
+                          className="absolute -top-3 sm:-top-4 left-4 sm:left-6 rounded-full bg-gradient-to-br from-[#2A4466] to-[#1A2F4A] px-3 sm:px-4 py-1 text-xs font-semibold text-white shadow flex items-center gap-2"
                         >
                           {processIcons[index]}
                           Step {index + 1}
                         </div>
-                        <h4 className="mb-2 mt-6 text-lg font-semibold text-gray-800 dark:text-gray-200">{step.step}</h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">{step.description}</p>
+                        <h4 className="mb-2 mt-4 sm:mt-6 text-base sm:text-lg font-semibold text-[#2A4466]">{step.step}</h4>
+                        <p className="text-xs sm:text-sm text-[#2A4466]/80">{step.description}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -325,23 +321,23 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-24 dark:bg-gray-900/30 border-t border-gray-100 dark:border-gray-800">
+      <section className="bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] py-24 border-t border-gray-100 dark:border-gray-800">
         <div className="container">
-          <div className="mx-auto max-w-3xl rounded-2xl bg-gradient-to-br from-purple-900 to-teal-900 p-10 text-center text-white shadow-2xl md:p-16">
+          <div className="mx-auto max-w-3xl rounded-2xl bg-gradient-to-br from-[#2A4466] to-[#1A2F4A] p-10 text-center text-white shadow-2xl md:p-16">
             <h2 className="mb-6 text-3xl font-bold md:text-4xl">Ready to Transform Your Marketing?</h2>
-            <p className="mb-10 text-lg text-purple-100">
+            <p className="mb-10 text-lg text-[#F5F5F5]">
               Let's create a customized marketing strategy that drives real results for your business.
             </p>
             <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
               <Button
                 size="lg"
-                className="rounded-full bg-white px-10 py-6 text-lg font-semibold text-purple-900 hover:bg-gray-100 shadow-lg border-2 border-transparent hover:border-teal-400 hover:scale-105 transition-all duration-200"
+                className="rounded-full bg-[#F5F5F5] px-10 py-6 text-lg font-semibold text-[#2A4466] hover:bg-white shadow-lg border-2 border-transparent hover:border-[#2A4466] hover:scale-105 transition-all duration-200"
               >
                 Schedule a Consultation
               </Button>
               <Link
                 href="/contact"
-                className="text-lg font-semibold text-white underline decoration-2 underline-offset-4 hover:text-purple-200"
+                className="text-lg font-semibold text-[#F5F5F5] underline decoration-2 underline-offset-4 hover:text-white"
               >
                 Contact Us
               </Link>
@@ -358,7 +354,6 @@ const AnimatedTabBar: React.FC<AnimatedTabBarProps> = ({ services, activeTab, se
   const [cursor, setCursor] = useState<{ left: number; width: number; opacity: number }>({ left: 0, width: 0, opacity: 0 });
 
   React.useEffect(() => {
-    // Set cursor to active tab on mount and when activeTab changes
     if (!containerRef.current) return;
     const activeIdx = services.findIndex((s: Service) => s.id === activeTab);
     const tab = containerRef.current.children[activeIdx] as HTMLElement | undefined;
@@ -374,7 +369,7 @@ const AnimatedTabBar: React.FC<AnimatedTabBarProps> = ({ services, activeTab, se
   return (
     <ul
       ref={containerRef}
-      className="relative mx-auto flex w-fit rounded-full border-2 border-gray-200 bg-white dark:bg-gray-900 p-1 shadow-lg overflow-x-auto"
+      className="relative mx-auto flex w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[70vw] lg:max-w-[60vw] rounded-full border-2 border-gray-200 bg-white dark:bg-gray-900 p-1 shadow-lg overflow-x-auto scrollbar-hide"
       onMouseLeave={() => setCursor((pv) => ({ ...pv, opacity: 1 }))}
       role="tablist"
     >
@@ -389,9 +384,9 @@ const AnimatedTabBar: React.FC<AnimatedTabBarProps> = ({ services, activeTab, se
               opacity: 1,
             });
           }}
-          className={`relative z-10 flex flex-col items-center gap-1 px-4 py-2 md:px-6 md:py-3 cursor-pointer rounded-full transition-all duration-200
-            ${activeTab === service.id ? 'text-white mix-blend-difference' : 'text-gray-700 dark:text-gray-200'}
-            text-xs md:text-sm font-semibold uppercase`}
+          className={`relative z-10 flex flex-col items-center justify-center gap-1 px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 cursor-pointer rounded-full transition-all duration-200 whitespace-nowrap min-h-[3.5rem] sm:min-h-[4rem] md:min-h-[4.5rem]
+            ${activeTab === service.id ? 'text-white' : 'text-gray-700 dark:text-gray-200'}
+            text-xs sm:text-sm font-semibold uppercase`}
           aria-label={service.title}
           aria-selected={activeTab === service.id}
           tabIndex={activeTab === service.id ? 0 : -1}
@@ -410,7 +405,7 @@ const Cursor: React.FC<CursorProps> = ({ position }) => (
   <motion.li
     animate={position}
     transition={{ type: "spring", stiffness: 400, damping: 30 }}
-    className="absolute z-0 h-10 md:h-12 rounded-full bg-black dark:bg-white/10"
+    className="absolute z-0 h-[3.5rem] sm:h-[4rem] md:h-[4.5rem] rounded-full bg-black dark:bg-white/10"
     style={{ top: 2, ...position }}
     aria-hidden="true"
   />
