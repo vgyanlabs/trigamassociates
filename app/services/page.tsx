@@ -7,7 +7,7 @@ import { useState, useRef } from "react"
 import React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { cn } from "@/lib/utils"
 
 type Service = {
@@ -217,67 +217,108 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Tabs Section */}
-      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] border-t border-b border-gray-100 dark:border-gray-800">
-        <div className="container px-4 sm:px-6">
+      <section className="relative py-16 sm:py-20 md:py-28 bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] border-t border-b border-gray-100 dark:border-gray-800 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+        </div>
+
+        <div className="container relative z-10 px-4 sm:px-6">
           <Tabs
             value={activeTab}
             onValueChange={setActiveTab}
-            className="space-y-8 sm:space-y-12"
+            className="space-y-12 sm:space-y-16"
           >
             {/* Custom Animated Tab Bar */}
-            <div className="flex justify-center mb-6 sm:mb-8">
-              <AnimatedTabBar
-                services={services}
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-              />
+            <div className="flex justify-center mb-8 sm:mb-12">
+              <div className="flex flex-wrap justify-center gap-2 max-w-4xl">
+                {services.map((service) => (
+                  <button
+                    key={service.id}
+                    onClick={() => setActiveTab(service.id)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200
+                      ${activeTab === service.id 
+                        ? 'bg-[#2A4466] text-white shadow-lg' 
+                        : 'bg-white text-[#2A4466] hover:bg-gray-50'
+                      }`}
+                  >
+                    {service.icon}
+                    <span className="text-sm font-medium">{service.title}</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
             {services.map((service, sIdx) => (
-              <TabsContent key={service.id} value={service.id} className="space-y-8 sm:space-y-16">
-                <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 items-start">
-                  <div className="space-y-6">
-                    <div
-                      className={cn(
-                        "mb-4 sm:mb-6 inline-block rounded-full bg-gradient-to-br px-4 sm:px-5 py-2 text-white text-sm font-semibold shadow-md",
-                        "from-[#2A4466] to-[#1A2F4A]"
-                      )}
-                    >
-                      {service.icon}
-                      <span className="ml-2">Service</span>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A4466]">{service.title}</h2>
-                    {/* Subtitle/Tagline */}
-                    <p className="text-sm sm:text-base italic text-[#1A2F4A]">{service.description.split("!")[0]}!</p>
-                    <p className="text-base sm:text-lg text-[#2A4466] leading-relaxed">{service.description}</p>
-
+              <TabsContent 
+                key={service.id} 
+                value={service.id} 
+                className="space-y-12 sm:space-y-16"
+              >
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="grid gap-10 sm:gap-12 lg:grid-cols-2 items-start"
+                >
+                  <div className="space-y-8">
                     <div className="space-y-4">
-                      <h3 className="text-lg sm:text-xl font-semibold text-[#2A4466]">Key Features</h3>
-                      <ul className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
+                      <div
+                        className={cn(
+                          "inline-flex items-center rounded-full bg-gradient-to-br px-5 py-2.5 text-white text-sm font-semibold shadow-lg",
+                          "from-[#2A4466] to-[#1A2F4A]"
+                        )}
+                      >
+                        {service.icon}
+                        <span className="ml-2">Premium Service</span>
+                      </div>
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#2A4466] to-[#1A2F4A] bg-clip-text text-transparent">
+                        {service.title}
+                      </h2>
+                      <p className="text-base sm:text-lg text-[#2A4466]/90 leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <div className="space-y-6">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-[#2A4466] flex items-center gap-2">
+                        <CheckCircle className="h-6 w-6 text-[#2A4466]" />
+                        Key Features
+                      </h3>
+                      <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2">
                         {service.features.map((feature, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <CheckCircle
-                              className="h-5 w-5 flex-shrink-0 mt-1 text-[#2A4466]"
-                            />
-                            <span className="text-sm sm:text-base text-[#2A4466]">{feature}</span>
-                          </li>
+                          <motion.li 
+                            key={index} 
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="flex items-start gap-3 group"
+                          >
+                            <div className="mt-1 h-2 w-2 rounded-full bg-[#2A4466] group-hover:scale-150 transition-transform duration-200" />
+                            <span className="text-base text-[#2A4466]/90 group-hover:text-[#2A4466] transition-colors duration-200">
+                              {feature}
+                            </span>
+                          </motion.li>
                         ))}
                       </ul>
                     </div>
 
-                    <Button className="mt-4 sm:mt-6 bg-gradient-to-br from-[#2A4466] to-[#1A2F4A] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-full shadow-lg border-2 border-transparent hover:border-[#F5F5F5] hover:scale-105 transition-all duration-200">
-                      Get Started
-                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <Button className="group relative overflow-hidden rounded-full bg-gradient-to-br from-[#2A4466] to-[#1A2F4A] px-8 py-4 text-lg font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                      <span className="relative z-10 flex items-center gap-2">
+                        Get Started
+                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#1A2F4A] to-[#2A4466] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </Button>
                   </div>
 
                   {/* Animated image transition */}
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#2A4466]/20 bg-white p-2 flex items-center justify-center min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#2A4466]/10 bg-white/50 backdrop-blur-sm p-3 flex items-center justify-center min-h-[320px] sm:min-h-[400px] lg:min-h-[480px]">
                     <motion.div
                       key={activeTab}
-                      initial={{ opacity: 0, x: 40 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -40 }}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.5 }}
                       className="w-full h-full"
                     >
@@ -290,26 +331,34 @@ export default function ServicesPage() {
                       />
                     </motion.div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="space-y-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#2A4466]">Our Process</h3>
-                  <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                <div className="space-y-8">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#2A4466] flex items-center gap-3">
+                    <Rocket className="h-7 w-7 text-[#2A4466]" />
+                    Our Process
+                  </h3>
+                  <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
                     {service.process.map((step, index) => (
                       <motion.div
                         key={index}
-                        whileHover={{ scale: 1.05, boxShadow: "0 8px 32px rgba(42,68,102,0.15)" }}
-                        className="relative rounded-xl border border-[#2A4466]/20 bg-white p-5 sm:p-7 shadow-md flex flex-col min-h-[160px] sm:min-h-[180px] transition-all duration-200"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        whileHover={{ 
+                          scale: 1.03, 
+                          boxShadow: "0 12px 40px rgba(42,68,102,0.15)",
+                          y: -5
+                        }}
+                        className="relative rounded-2xl border border-[#2A4466]/10 bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg flex flex-col min-h-[180px] sm:min-h-[200px] transition-all duration-300"
                         aria-label={`Step ${index + 1}: ${step.step}`}
                       >
-                        <div
-                          className="absolute -top-3 sm:-top-4 left-4 sm:left-6 rounded-full bg-gradient-to-br from-[#2A4466] to-[#1A2F4A] px-3 sm:px-4 py-1 text-xs font-semibold text-white shadow flex items-center gap-2"
-                        >
+                        <div className="absolute -top-4 left-6 rounded-full bg-gradient-to-br from-[#2A4466] to-[#1A2F4A] px-4 py-1.5 text-sm font-semibold text-white shadow-lg flex items-center gap-2">
                           {processIcons[index]}
                           Step {index + 1}
                         </div>
-                        <h4 className="mb-2 mt-4 sm:mt-6 text-base sm:text-lg font-semibold text-[#2A4466]">{step.step}</h4>
-                        <p className="text-xs sm:text-sm text-[#2A4466]/80">{step.description}</p>
+                        <h4 className="mb-3 mt-6 text-lg sm:text-xl font-semibold text-[#2A4466]">{step.step}</h4>
+                        <p className="text-sm sm:text-base text-[#2A4466]/80">{step.description}</p>
                       </motion.div>
                     ))}
                   </div>
