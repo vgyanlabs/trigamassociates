@@ -33,9 +33,9 @@ export default function Home() {
       <HeroSection heroRef={heroRef} />
       <StatsSection />
       <ClientLogos />
+      <TestimonialsSection />
       <ServicesSection />
       <GrowthPartner />
-      <TestimonialsSection />
       <CallToActionSection />
       <BlogSection />
       <Footer />
