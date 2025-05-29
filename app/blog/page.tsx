@@ -104,7 +104,7 @@ export default function BlogPage() {
   return (
     <main className="flex-1">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-20 md:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] py-20 md:py-28">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         </div>
@@ -116,23 +116,23 @@ export default function BlogPage() {
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <h1 className="mb-6 bg-gradient-to-r from-white via-purple-200 to-teal-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 bg-gradient-to-r from-[#2A4466] via-[#2A4466]/90 to-[#2A4466]/80 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
               Marketing Insights & Trends
             </h1>
-            <p className="mb-8 text-lg text-purple-100 md:text-xl">
+            <p className="mb-8 text-lg text-[#2A4466] md:text-xl">
               Stay ahead of the curve with our latest marketing insights, tips, and industry trends.
             </p>
 
             <div className="relative mx-auto max-w-xl">
               <div className="absolute inset-y-0 left-3 flex items-center">
-                <Search className="h-5 w-5 text-gray-400" />
+                <Search className="h-5 w-5 text-[#2A4466]/60" />
               </div>
               <Input
                 type="text"
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="rounded-full border-white/20 bg-white/10 pl-10 text-white placeholder:text-gray-400 backdrop-blur-sm"
+                className="rounded-full border-[#2A4466]/20 bg-white/80 pl-10 text-[#2A4466] placeholder:text-[#2A4466]/60 backdrop-blur-sm"
               />
             </div>
           </motion.div>
@@ -143,7 +143,7 @@ export default function BlogPage() {
       {featuredPosts.length > 0 && (
         <section className="py-12 md:py-20">
           <div className="container">
-            <h2 className="mb-8 text-2xl font-bold md:text-3xl">Featured Articles</h2>
+            <h2 className="mb-8 text-2xl font-bold text-[#2A4466] md:text-3xl">Featured Articles</h2>
             <div className="grid gap-8 md:grid-cols-2">
               {featuredPosts.map((post) => (
                 <motion.div
@@ -151,7 +151,7 @@ export default function BlogPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="group overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800"
+                  className="group overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-[#2A4466]/10"
                 >
                   <div className="relative h-60 overflow-hidden md:h-72">
                     <Image
@@ -161,11 +161,11 @@ export default function BlogPage() {
                       height={600}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2A4466]/80 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-6">
-                      <Badge className="mb-2 bg-teal-500 text-white">Featured</Badge>
+                      <Badge className="mb-2 bg-[#2A4466] text-white">Featured</Badge>
                       <h3 className="mb-2 text-2xl font-bold text-white">{post.title}</h3>
-                      <div className="flex items-center space-x-4 text-xs text-gray-300">
+                      <div className="flex items-center space-x-4 text-xs text-white/80">
                         <div className="flex items-center">
                           <Calendar className="mr-1 h-3 w-3" />
                           <span>{post.date}</span>
@@ -178,17 +178,17 @@ export default function BlogPage() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <p className="mb-4 text-gray-600 dark:text-gray-300">{post.excerpt}</p>
+                    <p className="mb-4 text-[#2A4466]/80">{post.excerpt}</p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="relative mr-3 h-8 w-8 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
-                          <User className="absolute inset-0 m-auto h-5 w-5 text-gray-500 dark:text-gray-400" />
+                        <div className="relative mr-3 h-8 w-8 overflow-hidden rounded-full bg-[#2A4466]/10">
+                          <User className="absolute inset-0 m-auto h-5 w-5 text-[#2A4466]" />
                         </div>
-                        <span className="text-sm font-medium">{post.author}</span>
+                        <span className="text-sm font-medium text-[#2A4466]">{post.author}</span>
                       </div>
                       <Link
                         href={`/blog/${post.id}`}
-                        className="group inline-flex items-center text-sm font-medium text-teal-600 transition-colors hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
+                        className="group inline-flex items-center text-sm font-medium text-[#2A4466] transition-colors hover:text-[#2A4466]/80"
                       >
                         Read More
                         <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -203,10 +203,10 @@ export default function BlogPage() {
       )}
 
       {/* Categories */}
-      <section className="border-y border-gray-200 bg-gray-50 py-4 dark:border-gray-800 dark:bg-gray-900/30">
+      <section className="border-y border-[#2A4466]/10 bg-[#F5F5F5] py-4">
         <div className="container">
           <div className="flex items-center gap-2 overflow-x-auto pb-2">
-            <Tag className="h-5 w-5 flex-shrink-0 text-gray-500" />
+            <Tag className="h-5 w-5 flex-shrink-0 text-[#2A4466]" />
             {categories.map((category) => (
               <Button
                 key={category.id}
@@ -216,8 +216,8 @@ export default function BlogPage() {
                 className={cn(
                   "rounded-full",
                   activeCategory === category.id
-                    ? "bg-gradient-to-r from-purple-600 to-teal-500"
-                    : "border-gray-200 dark:border-gray-700",
+                    ? "bg-gradient-to-r from-[#2A4466] to-[#2A4466]/90"
+                    : "border-[#2A4466]/20 text-[#2A4466] hover:bg-[#2A4466]/10",
                 )}
               >
                 {category.label}
@@ -231,8 +231,8 @@ export default function BlogPage() {
       <section className="py-12 md:py-20">
         <div className="container">
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-2xl font-bold md:text-3xl">All Articles</h2>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
+            <h2 className="text-2xl font-bold text-[#2A4466] md:text-3xl">All Articles</h2>
+            <div className="text-sm text-[#2A4466]/60">
               Showing {filteredPosts.length} of {blogPosts.length} articles
             </div>
           </div>
@@ -246,7 +246,7 @@ export default function BlogPage() {
             >
               {filteredPosts.map((post) => (
                 <motion.div key={post.id} variants={item} className="group">
-                  <div className="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800">
+                  <div className="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-[#2A4466]/10">
                     <div className="relative h-48 overflow-hidden md:h-56">
                       <Image
                         src={post.image || "/placeholder.svg"}
@@ -255,20 +255,11 @@ export default function BlogPage() {
                         height={600}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2A4466]/70 to-transparent"></div>
                       <div className="absolute bottom-0 left-0 p-4">
                         <Badge
                           className={cn(
-                            "bg-gradient-to-r text-white",
-                            post.category === "social-media"
-                              ? "from-blue-500 to-indigo-600"
-                              : post.category === "influencer"
-                                ? "from-purple-500 to-pink-600"
-                                : post.category === "performance"
-                                  ? "from-teal-500 to-emerald-600"
-                                  : post.category === "content"
-                                    ? "from-amber-500 to-orange-600"
-                                    : "from-rose-500 to-red-600",
+                            "bg-[#2A4466] text-white",
                           )}
                         >
                           {categories.find((c) => c.id === post.category)?.label}
@@ -277,7 +268,7 @@ export default function BlogPage() {
                     </div>
 
                     <div className="p-6">
-                      <div className="mb-4 flex items-center space-x-4 text-xs text-gray-500 dark:text-gray-400">
+                      <div className="mb-4 flex items-center space-x-4 text-xs text-[#2A4466]/60">
                         <div className="flex items-center">
                           <Calendar className="mr-1 h-3 w-3" />
                           <span>{post.date}</span>
@@ -288,21 +279,21 @@ export default function BlogPage() {
                         </div>
                       </div>
 
-                      <h3 className="mb-3 text-xl font-bold transition-colors group-hover:text-teal-600 dark:group-hover:text-teal-400">
+                      <h3 className="mb-3 text-xl font-bold text-[#2A4466] transition-colors group-hover:text-[#2A4466]/80">
                         {post.title}
                       </h3>
-                      <p className="mb-4 text-gray-600 dark:text-gray-300">{post.excerpt}</p>
+                      <p className="mb-4 text-[#2A4466]/80">{post.excerpt}</p>
 
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                          <div className="relative mr-3 h-8 w-8 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
-                            <User className="absolute inset-0 m-auto h-5 w-5 text-gray-500 dark:text-gray-400" />
+                          <div className="relative mr-3 h-8 w-8 overflow-hidden rounded-full bg-[#2A4466]/10">
+                            <User className="absolute inset-0 m-auto h-5 w-5 text-[#2A4466]" />
                           </div>
-                          <span className="text-sm font-medium">{post.author}</span>
+                          <span className="text-sm font-medium text-[#2A4466]">{post.author}</span>
                         </div>
                         <Link
                           href={`/blog/${post.id}`}
-                          className="group inline-flex items-center text-sm font-medium text-teal-600 transition-colors hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
+                          className="group inline-flex items-center text-sm font-medium text-[#2A4466] transition-colors hover:text-[#2A4466]/80"
                         >
                           Read More
                           <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -315,11 +306,11 @@ export default function BlogPage() {
             </motion.div>
           ) : (
             <div className="my-20 text-center">
-              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
-                <Search className="h-10 w-10 text-gray-400" />
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#2A4466]/10">
+                <Search className="h-10 w-10 text-[#2A4466]" />
               </div>
-              <h3 className="mb-2 text-xl font-bold">No articles found</h3>
-              <p className="mb-6 text-gray-600 dark:text-gray-400">
+              <h3 className="mb-2 text-xl font-bold text-[#2A4466]">No articles found</h3>
+              <p className="mb-6 text-[#2A4466]/80">
                 We couldn't find any articles matching your search criteria.
               </p>
               <Button
@@ -327,6 +318,7 @@ export default function BlogPage() {
                   setSearchQuery("")
                   setActiveCategory("all")
                 }}
+                className="bg-[#2A4466] text-white hover:bg-[#2A4466]/90"
               >
                 Reset Filters
               </Button>
@@ -337,7 +329,7 @@ export default function BlogPage() {
             <div className="mt-12 flex justify-center">
               <Button
                 variant="outline"
-                className="rounded-full border-teal-500 px-8 text-teal-600 hover:bg-teal-50 hover:text-teal-700 dark:border-teal-400 dark:text-teal-400 dark:hover:bg-teal-900/20 dark:hover:text-teal-300"
+                className="rounded-full border-[#2A4466] px-8 text-[#2A4466] hover:bg-[#2A4466]/10"
               >
                 Load More Articles
               </Button>
@@ -347,12 +339,12 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="bg-gradient-to-br from-purple-900 via-slate-900 to-teal-900 py-20 text-white">
+      <section className="bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] py-20 text-[#2A4466]">
         <div className="container">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm md:p-12">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-[#2A4466]/10 bg-white/80 p-8 backdrop-blur-sm md:p-12">
             <div className="text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">Stay Updated with Marketing Trends</h2>
-              <p className="mb-8 text-lg text-purple-100">
+              <h2 className="mb-4 text-3xl font-bold text-[#2A4466] md:text-4xl">Stay Updated with Marketing Trends</h2>
+              <p className="mb-8 text-lg text-[#2A4466]/80">
                 Subscribe to our newsletter to receive the latest marketing insights and trends directly to your inbox.
               </p>
 
@@ -360,14 +352,14 @@ export default function BlogPage() {
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 rounded-full border-white/10 bg-white/10 text-white placeholder:text-gray-400"
+                  className="flex-1 rounded-full border-[#2A4466]/20 bg-white/80 text-[#2A4466] placeholder:text-[#2A4466]/60"
                   required
                 />
-                <Button type="submit" className="rounded-full bg-white px-6 py-2 text-purple-900 hover:bg-gray-100">
+                <Button type="submit" className="rounded-full bg-[#2A4466] px-6 py-2 text-white hover:bg-[#2A4466]/90">
                   Subscribe
                 </Button>
               </form>
-              <p className="mt-4 text-sm text-purple-200">We respect your privacy. Unsubscribe at any time.</p>
+              <p className="mt-4 text-sm text-[#2A4466]/70">We respect your privacy. Unsubscribe at any time.</p>
             </div>
           </div>
         </div>
