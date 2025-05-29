@@ -81,7 +81,7 @@ export default function ContactPage() {
   return (
     <main className="">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-20 md:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F5] via-[#F5F5F5]/80 to-[#2A4466] py-20 md:py-28">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         </div>
@@ -93,10 +93,10 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <h1 className="mb-6 bg-gradient-to-r from-white via-purple-200 to-teal-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 bg-gradient-to-r from-[#F5F5F5] via-[#2A4466]/80 to-[#2A4466] bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
               Get In Touch
             </h1>
-            <p className="mb-8 text-lg text-purple-100 md:text-xl">
+            <p className="mb-8 text-lg text-[#2A4466] md:text-xl">
               Have a question or ready to elevate your marketing strategy? We're here to help you achieve your business
               goals.
             </p>
@@ -238,7 +238,7 @@ export default function ContactPage() {
                           <Button
                             type="button"
                             onClick={() => setCurrentStep(2)}
-                            className="w-full rounded-full bg-gradient-to-r from-purple-600 to-teal-500 py-6 text-lg font-medium text-white"
+                            className="w-full rounded-full bg-[#2A4466] py-6 text-lg font-medium text-white"
                           >
                             Continue
                           </Button>
@@ -323,7 +323,7 @@ export default function ContactPage() {
                             </Button>
                             <Button
                               type="submit"
-                              className="flex-1 rounded-full bg-gradient-to-r from-purple-600 to-teal-500 py-6 text-lg font-medium text-white"
+                              className="flex-1 rounded-full bg-[#2A4466]  py-6 text-lg font-medium text-white"
                             >
                               <Send className="mr-2 h-5 w-5" />
                               Send Message
