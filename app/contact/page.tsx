@@ -16,12 +16,12 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
-    company: "",
-    subject: "",
-    message: "",
-    budget: "",
-    howDidYouHear: "",
+    projectType: "",
+    bestTimeToContact: "",
+    preferredContactMethod: "",
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   })
+  const [currentStep, setCurrentStep] = useState(1)
   const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,8 +37,46 @@ export default function ContactPage() {
     e.preventDefault()
     console.log("Form submitted:", formState)
     setSubmitted(true)
-    // In a real app, you would send this to your backend
   }
+
+  const projectTypes = [
+    {
+      id: "website",
+      title: "Website Development",
+      description: "Build or redesign your website",
+      icon: "🌐",
+    },
+    {
+      id: "marketing",
+      title: "Digital Marketing",
+      description: "Grow your online presence",
+      icon: "📈",
+    },
+    {
+      id: "branding",
+      title: "Branding",
+      description: "Create or refresh your brand",
+      icon: "🎨",
+    },
+    {
+      id: "other",
+      title: "Other",
+      description: "Something else in mind?",
+      icon: "💡",
+    },
+  ]
+
+  const contactMethods = [
+    { id: "email", label: "Email", icon: "📧" },
+    { id: "phone", label: "Phone", icon: "📱" },
+    { id: "video", label: "Video Call", icon: "🎥" },
+  ]
+
+  const timeSlots = [
+    "Morning (9AM - 12PM)",
+    "Afternoon (12PM - 5PM)",
+    "Evening (5PM - 8PM)",
+  ]
 
   return (
     <main className="">
@@ -138,149 +176,161 @@ export default function ContactPage() {
               <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-lg dark:border-gray-800 dark:bg-gray-800 md:p-10">
                 {!submitted ? (
                   <>
-                    <h2 className="mb-6 text-2xl font-bold md:text-3xl">Send Us a Message</h2>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid gap-6 md:grid-cols-2">
-                        <div className="space-y-2">
-                          <Label htmlFor="name">Full Name</Label>
-                          <Input
-                            id="name"
-                            name="name"
-                            placeholder="John Smith"
-                            value={formState.name}
-                            onChange={handleChange}
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="email">Email Address</Label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder="john@example.com"
-                            value={formState.email}
-                            onChange={handleChange}
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid gap-6 md:grid-cols-2">
-                        <div className="space-y-2">
-                          <Label htmlFor="phone">Phone Number</Label>
-                          <Input
-                            id="phone"
-                            name="phone"
-                            placeholder="+1 (555) 123-4567"
-                            value={formState.phone}
-                            onChange={handleChange}
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="company">Company</Label>
-                          <Input
-                            id="company"
-                            name="company"
-                            placeholder="Your Company"
-                            value={formState.company}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="subject">Subject</Label>
-                        <Select
-                          value={formState.subject}
-                          onValueChange={(value) => handleSelectChange("subject", value)}
-                        >
-                          <SelectTrigger id="subject">
-                            <SelectValue placeholder="Select a subject" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="general">General Inquiry</SelectItem>
-                            <SelectItem value="services">Services Information</SelectItem>
-                            <SelectItem value="quote">Request a Quote</SelectItem>
-                            <SelectItem value="partnership">Partnership Opportunity</SelectItem>
-                            <SelectItem value="support">Support</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="message">Your Message</Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          placeholder="Tell us about your project or inquiry..."
-                          rows={5}
-                          value={formState.message}
-                          onChange={handleChange}
-                          required
+                    <div className="mb-8">
+                      <h2 className="mb-2 text-2xl font-bold md:text-3xl">Let's Get Started</h2>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {currentStep === 1
+                          ? "Tell us a bit about yourself"
+                          : "Tell us about your project"}
+                      </p>
+                      <div className="mt-4 flex items-center space-x-2">
+                        <div
+                          className={`h-2 w-2 rounded-full ${
+                            currentStep === 1 ? "bg-purple-600" : "bg-gray-300"
+                          }`}
+                        />
+                        <div
+                          className={`h-2 w-2 rounded-full ${
+                            currentStep === 2 ? "bg-purple-600" : "bg-gray-300"
+                          }`}
                         />
                       </div>
+                    </div>
 
-                      <div className="space-y-2">
-                        <Label>Estimated Budget</Label>
-                        <RadioGroup
-                          value={formState.budget}
-                          onValueChange={(value) => handleSelectChange("budget", value)}
-                          className="grid grid-cols-2 gap-4 md:grid-cols-4"
-                        >
-                          <div className="flex items-center space-x-2 rounded-lg border border-gray-200 p-3 dark:border-gray-700">
-                            <RadioGroupItem value="under5k" id="under5k" />
-                            <Label htmlFor="under5k" className="cursor-pointer">
-                              Under $5K
-                            </Label>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {currentStep === 1 ? (
+                        <>
+                          <div className="space-y-4">
+                            <div className="space-y-2">
+                              <Label htmlFor="name">Full Name</Label>
+                              <Input
+                                id="name"
+                                name="name"
+                                placeholder="John Smith"
+                                value={formState.name}
+                                onChange={handleChange}
+                                required
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="email">Email Address</Label>
+                              <Input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder="john@example.com"
+                                value={formState.email}
+                                onChange={handleChange}
+                                required
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="phone">Phone Number</Label>
+                              <Input
+                                id="phone"
+                                name="phone"
+                                placeholder="+1 (555) 123-4567"
+                                value={formState.phone}
+                                onChange={handleChange}
+                              />
+                            </div>
                           </div>
-                          <div className="flex items-center space-x-2 rounded-lg border border-gray-200 p-3 dark:border-gray-700">
-                            <RadioGroupItem value="5k-10k" id="5k-10k" />
-                            <Label htmlFor="5k-10k" className="cursor-pointer">
-                              $5K - $10K
-                            </Label>
-                          </div>
-                          <div className="flex items-center space-x-2 rounded-lg border border-gray-200 p-3 dark:border-gray-700">
-                            <RadioGroupItem value="10k-25k" id="10k-25k" />
-                            <Label htmlFor="10k-25k" className="cursor-pointer">
-                              $10K - $25K
-                            </Label>
-                          </div>
-                          <div className="flex items-center space-x-2 rounded-lg border border-gray-200 p-3 dark:border-gray-700">
-                            <RadioGroupItem value="25kplus" id="25kplus" />
-                            <Label htmlFor="25kplus" className="cursor-pointer">
-                              $25K+
-                            </Label>
-                          </div>
-                        </RadioGroup>
-                      </div>
+                          <Button
+                            type="button"
+                            onClick={() => setCurrentStep(2)}
+                            className="w-full rounded-full bg-gradient-to-r from-purple-600 to-teal-500 py-6 text-lg font-medium text-white"
+                          >
+                            Continue
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <div className="space-y-6">
+                            <div className="space-y-4">
+                              <Label>What brings you here?</Label>
+                              <div className="grid gap-4 md:grid-cols-2">
+                                {projectTypes.map((type) => (
+                                  <div
+                                    key={type.id}
+                                    className={`cursor-pointer rounded-lg border p-4 transition-all ${
+                                      formState.projectType === type.id
+                                        ? "border-purple-600 bg-purple-50 dark:border-purple-400 dark:bg-purple-900/20"
+                                        : "border-gray-200 hover:border-purple-200 dark:border-gray-700"
+                                    }`}
+                                    onClick={() => handleSelectChange("projectType", type.id)}
+                                  >
+                                    <div className="mb-2 text-2xl">{type.icon}</div>
+                                    <h3 className="font-medium">{type.title}</h3>
+                                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                                      {type.description}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
 
-                      <div className="space-y-2">
-                        <Label htmlFor="howDidYouHear">How did you hear about us?</Label>
-                        <Select
-                          value={formState.howDidYouHear}
-                          onValueChange={(value) => handleSelectChange("howDidYouHear", value)}
-                        >
-                          <SelectTrigger id="howDidYouHear">
-                            <SelectValue placeholder="Select an option" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="search">Search Engine</SelectItem>
-                            <SelectItem value="social">Social Media</SelectItem>
-                            <SelectItem value="referral">Referral</SelectItem>
-                            <SelectItem value="advertisement">Advertisement</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                            <div className="space-y-4">
+                              <Label>Preferred Contact Method</Label>
+                              <div className="flex space-x-4">
+                                {contactMethods.map((method) => (
+                                  <div
+                                    key={method.id}
+                                    className={`flex cursor-pointer items-center space-x-2 rounded-lg border p-3 ${
+                                      formState.preferredContactMethod === method.id
+                                        ? "border-purple-600 bg-purple-50 dark:border-purple-400 dark:bg-purple-900/20"
+                                        : "border-gray-200 hover:border-purple-200 dark:border-gray-700"
+                                    }`}
+                                    onClick={() =>
+                                      handleSelectChange("preferredContactMethod", method.id)
+                                    }
+                                  >
+                                    <span>{method.icon}</span>
+                                    <span>{method.label}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
 
-                      <Button
-                        type="submit"
-                        className="w-full rounded-full bg-gradient-to-r from-purple-600 to-teal-500 py-6 text-lg font-medium text-white"
-                      >
-                        <Send className="mr-2 h-5 w-5" />
-                        Send Message
-                      </Button>
+                            <div className="space-y-2">
+                              <Label htmlFor="bestTimeToContact">Best Time to Contact</Label>
+                              <Select
+                                value={formState.bestTimeToContact}
+                                onValueChange={(value) =>
+                                  handleSelectChange("bestTimeToContact", value)
+                                }
+                              >
+                                <SelectTrigger id="bestTimeToContact">
+                                  <SelectValue placeholder="Select a time slot" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {timeSlots.map((slot) => (
+                                    <SelectItem key={slot} value={slot}>
+                                      {slot}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+
+                          <div className="flex space-x-4">
+                            <Button
+                              type="button"
+                              onClick={() => setCurrentStep(1)}
+                              className="flex-1 rounded-full border border-gray-200 bg-white py-6 text-lg font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                            >
+                              Back
+                            </Button>
+                            <Button
+                              type="submit"
+                              className="flex-1 rounded-full bg-gradient-to-r from-purple-600 to-teal-500 py-6 text-lg font-medium text-white"
+                            >
+                              <Send className="mr-2 h-5 w-5" />
+                              Send Message
+                            </Button>
+                          </div>
+                        </>
+                      )}
                     </form>
                   </>
                 ) : (
